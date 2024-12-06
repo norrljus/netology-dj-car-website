@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ car.model }}{% endblock title %}
+{% block content %}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <div>
+            <img src="{{ car.image.url }}" alt="" class="img-responsive wc-image">
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <h2>{{ car.model }}, {{ car.year }}</h2>
+          <p class="lead">Цена: <strong class="text-primary">{{ car.price | floatformat:"-2g" }} ₽</strong></p>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Модель</span>
+                <br>
+                <strong>{{ car.model }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Год выпуска</span>
+                <br>
+                <strong>{{ car.year }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Коробка передач</span>
+                <br>
+                <strong>{{ car.gearbox }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Привод</span>
+                <br>
+                <strong>{{ car.drive_unit }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Пробег</span>
+                <br>
+                <strong>{{ car.mileage }} км</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Топливо</span>
+                <br>
+                <strong>{{ car.fuel_type }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Объем двигателя</span>
+                <br>
+                <strong>{{ car.volume }} л</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Кузов</span>
+                <br>
+                <strong>{{ car.body_type }}</strong>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <p>
+                <span>Цвет</span>
+                <br>
+                <strong>{{ car.color }}</strong>
+              </p>
+            </div>
+          </div>
+          <h3><a href="{% url 'list' %}">Назад</a></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
