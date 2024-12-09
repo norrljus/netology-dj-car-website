@@ -47,15 +47,15 @@ DRIVE_UNIT_CHOICES = (
 
 class Car(models.Model):
     id = models.AutoField(primary_key=True)
-    model = models.CharField(max_length=20)
+    model = models.CharField(max_length=50)
     year = models.IntegerField()
     color = models.CharField(max_length=10)
     mileage = models.IntegerField()
     volume = models.DecimalField(max_digits=10, decimal_places=2)
-    body_type = models.CharField(max_length=15)
-    drive_unit = models.CharField(max_length=10)
-    gearbox = models.CharField(max_length=10)
-    fuel_type = models.CharField(max_length=10)
+    body_type = models.CharField(max_length=15, choices=BODY_TYPE_CHOICES)
+    drive_unit = models.CharField(max_length=10, choices=DRIVE_UNIT_CHOICES)
+    gearbox = models.CharField(max_length=10, choices=GEARBOX_CHOICES)
+    fuel_type = models.CharField(max_length=10, choices=FUEL_TYPE_CHOICES)
     price = models.DecimalField(max_digits=20, decimal_places=2)
     image = models.ImageField(upload_to='images')
 
